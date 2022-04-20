@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 class ClothController extends GetxController{
   final ClothRepo clothRepo;
   ClothController({required this.clothRepo});
-  List<ClothModel> _clothList = [];
-  List<ClothModel> get clothList => _clothList;
+  //List<ClothModel> _clothList = [];
+  var _clothList = <ClothModel>[].obs;
+  List<ClothModel> get clothList => _clothList.value;
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
@@ -18,18 +19,19 @@ class ClothController extends GetxController{
 
   int _inCartItems = 0;
   int get inCartItems => _inCartItems + _quantity;
+  
 
   Future<void> getClothList() async{
     Response response = await clothRepo.getClothList(); 
     if(response.statusCode==200){
-      //print("got all products");
-      _clothList=[];
+      print("got all cloths");
+      _clothList.value=[];
       _clothList.addAll(Cloth.fromJson(response.body).cloths);
-      //print(_popularProductList);
+      print(_clothList);
       _isLoaded = true;
       update(); 
     }else {
-      
+      print("Can't find any cloths");
     }
   }
 
@@ -62,5 +64,12 @@ class ClothController extends GetxController{
     }else {
       return quantity;
     }
+  }
+
+  @override
+  void onInit() async{
+    // TODO: implement onInit
+    await getClothList();
+    super.onInit();
   }
 }

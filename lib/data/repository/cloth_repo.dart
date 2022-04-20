@@ -7,6 +7,6 @@ class ClothRepo extends GetxService{
   ClothRepo({required this.apiClient});
 
   Future<Response> getClothList() async{
-    return await apiClient.getData(AppConstants.CLOTH_URL);
+    return await apiClient.getData(AppConstants.CLOTH_URI);
   }
 }

@@ -2,21 +2,22 @@ import 'package:cloth_shopping_app/controllers/cloth_controller.dart';
 import 'package:cloth_shopping_app/routes/route_helper.dart';
 import 'package:cloth_shopping_app/utils/dimensions.dart';
 import 'package:cloth_shopping_app/widgets/qpp_icon.dart';
+import '../../models/cloth_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ClothPage extends StatelessWidget {
-  final String page;
-  const ClothPage({ Key? key, required this.page }) : super(key: key);
+  //final String page;
+  const ClothPage({ Key? key,/* required this.page*/ }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // backgroundColor: Colors.white,
-      // body:
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body:
         
-      //   Column(
+        Column(
           children: [
             GestureDetector(
               onTap: () {
@@ -52,7 +53,8 @@ class ClothPage extends StatelessWidget {
               child: Divider(color: Colors.black38),
             ),
             GetBuilder<ClothController>(builder: (cloth){
-              return cloth.clothList.length>0 ? ListView.builder(
+              print(cloth.clothList.length);
+              return cloth.isLoaded? ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: cloth.clothList.length,
@@ -255,7 +257,7 @@ class ClothPage extends StatelessWidget {
             ), 
             SizedBox(height: 40,)
           ]
-        //)
+        )
       );
     
   }

@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.toNamed(Routes.getCloths("home"));
+                          Get.toNamed(Routes.getCloths());
                         },
                         child: Container(
                           padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.toNamed(Routes.getCloths("home"));
+                          Get.toNamed(Routes.getCloths());
                         },
                         child: Container(
                           padding: EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),

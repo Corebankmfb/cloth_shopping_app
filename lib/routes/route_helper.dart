@@ -9,15 +9,17 @@ class Routes{
   static const String order = "/order";
 
   static String getInitial()=>"$initial";
-  static String getCloths(String page)=>"$cloths?page=$page";
+  //static String getCloths(String page)=>"$cloths?page=$page";
+  static String getCloths()=>"$cloths";
   static String goToOrder()=>"$order";
 
   static List<GetPage> routes = [
     GetPage(name: initial, page: () => HomePage()),
-    GetPage(name: cloths, page: (){
-      var page = Get.parameters["page"];
-      return ClothPage(page: '',);
-    }),
+    GetPage(name: cloths, page: () => ClothPage()),
+    // GetPage(name: cloths, page: (){
+    //   var page = Get.parameters["page"];
+    //   return const ClothPage(page: '',);
+    // }),
     GetPage(name: order, page: () => Checkout()),
   ];
 }

@@ -16,7 +16,7 @@ class Checkout extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed(Routes.getCloths("home"));
+              Get.toNamed(Routes.getCloths());
             },
             child: Container(
               padding: EdgeInsets.only(left: 20, top: 50, right: 30),
