@@ -1,26 +1,27 @@
 class Cloth {
-  String? _success;
-  String? _message;
-  String? _status;
-  late List<ClothModel> _cloths;
-  List<ClothModel> get cloths => _cloths;
+  String? success;
+  String? message;
+  String? status;
+  List<ClothModel>? clotH;
+  // List<ClothModel> get cloths => cloth!;
 
-  cloth({required success, required message, required status, required cloths}){
-    this._success = success;
-    this._message = message;
-    this._status = status;
-    this._cloths = cloths;
-  }
+  Cloth({
+    this.success,
+    this.message,
+    this.status,
+    this.clotH,
+    // this.cloths
+  });
 
   Cloth.fromJson(Map<String, dynamic> json) {
-    _success = json['success'];
-    _message = json['message'];
-    _status = json['status'];
+    success = json['success'];
+    message = json['message'];
+    status = json['status'];
     if (json['data'] != null) {
-      _cloths = <ClothModel>[];
-      json['data'].forEach((v) {
-        cloths.add(ClothModel.fromJson(v));
-      });
+      clotH = <ClothModel>[];
+      // json['data'].forEach((v) {
+      //   cloths.add(ClothModel.fromJson(v));
+      // });
     }
   }
 
@@ -34,6 +35,10 @@ class Cloth {
   //   }
   //   return data;
   // }
+
+  getClothes(Cloth cloth) {
+    clotH = cloth.clotH;
+  }
 }
 
 class ClothModel {
@@ -44,14 +49,14 @@ class ClothModel {
   String? refNo;
   String? color;
 
-  ClothModel(
-      {this.sId,
-      this.name,
-      this.size,
-      this.price,
-      this.refNo,
-      this.color,
-      });
+  ClothModel({
+    this.sId,
+    this.name,
+    this.size,
+    this.price,
+    this.refNo,
+    this.color,
+  });
 
   ClothModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -63,13 +68,13 @@ class ClothModel {
   }
 
   Map<String, dynamic> toJson() {
-    return { 
-      '_id' : this.sId,
-      'name' : this.name,
-      'size' : this.size,
-      'price' : this.price,
-      'refNo' : this.refNo,
-      'color' : this.color,
+    return {
+      '_id': this.sId,
+      'name': this.name,
+      'size': this.size,
+      'price': this.price,
+      'refNo': this.refNo,
+      'color': this.color,
     };
   }
 }

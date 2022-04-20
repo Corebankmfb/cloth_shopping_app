@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({ Key? key }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +22,15 @@ class HomePage extends StatelessWidget {
               width: double.maxFinite,
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    "assets/image/image 1.png"
-                  )
-                )
-              ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/image/image 1.png"))),
             ),
-          ), 
+          ),
           Positioned(
             left: 0,
             right: 0,
-            top: Dimensions.height45*8,
+            top: Dimensions.height45 * 8,
             child: Container(
               padding: EdgeInsets.only(left: 40, right: 40),
               child: Column(
@@ -43,22 +39,22 @@ class HomePage extends StatelessWidget {
                   Text(
                     "Make your purchase here",
                     style: TextStyle(
-                      fontSize: Dimensions.font20+20,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: "Roboto",
-                      color: Colors.white
-                    ),
+                        fontSize: Dimensions.font20 + 20,
+                        fontWeight: FontWeight.w900,
+                        fontFamily: "Roboto",
+                        color: Colors.white),
                   ),
-
-                  SizedBox(height: 15,),
-
+                  SizedBox(
+                    height: 15,
+                  ),
                   Container(
-                    child: Divider(color: Colors.white,
+                    child: Divider(
+                      color: Colors.white,
                     ),
                   ),
-
-                  SizedBox(height: 15,),
-
+                  SizedBox(
+                    height: 15,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -67,45 +63,41 @@ class HomePage extends StatelessWidget {
                           Get.toNamed(Routes.getCloths());
                         },
                         child: Container(
-                          padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                          padding: EdgeInsets.only(
+                              left: 20, right: 20, top: 10, bottom: 10),
                           child: Text(
                             "WOMEN",
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold
-                            ),
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
                           ),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white
-                          ),
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white),
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Get.toNamed(Routes.getCloths());
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
-                          child: Text(
-                            "MEN",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold
+                          onTap: () {
+                            Get.toNamed(Routes.getCloths());
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(
+                                left: 40, right: 40, top: 10, bottom: 10),
+                            child: Text(
+                              "MEN",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.white
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.transparent,
+                              //color: Colors.white
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.transparent,
-                            //color: Colors.white
-                          ),
-                        )
-                      )
+                          ))
                     ],
                   )
                 ],
